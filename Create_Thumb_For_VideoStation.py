@@ -6,7 +6,7 @@ import os
 
 root_path = sys.path[0]
 # print(root_path)
-types = ['.mp4', '.avi', '.wmv', '.mkv', '.flv', '.mov', '.ts']
+types = ['.mp4', '.avi', '.wmv', '.mkv', '.flv', '.mov']
 
 
 def is_video_file_extension(file_name):
@@ -20,7 +20,7 @@ def is_video_file_extension(file_name):
 
 
 def create_thumb(file_full_path, fail_thumb_dir):
-    public = "ffmpeg -i {} -y -f mjpeg -ss 3 -t 0.001 -s ".format(file_full_path)
+    public = "ffmpeg -i '{}' -y -f mjpeg -ss 3 -t 0.001 -s ".format(file_full_path)
     thumb_video = public + '1280x720 {}/SYNOVIDEO_VIDEO_SCREENSHOT.jpg'.format(fail_thumb_dir)
     os.system(thumb_video)
 
